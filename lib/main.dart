@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/auth/signUpView.dart';
+import 'package:social_media/screens/startUpView.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,9 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'ChitChat',
 
-      home: SignUpView(),
+      home: StartUpView(),
     );
   }
 }

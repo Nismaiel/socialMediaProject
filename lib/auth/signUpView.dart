@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:provider_architecture/provider_architecture.dart';
 import 'package:social_media/auth/signUpViewModel.dart';
 
+import 'loginView.dart';
+
 class SignUpView extends StatefulWidget {
   @override
   _SignUpViewState createState() => _SignUpViewState();
@@ -73,8 +75,8 @@ class _SignUpViewState extends State<SignUpView> {
 
                     FlatButton(
                       onPressed: () {
-//                    Navigator.of(context).pushReplacement(
-//                        MaterialPageRoute(builder: (ctx) => LoginView()));
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (ctx) => LoginView()));
                       },
                       child: Text(
                         'Already have an account?.',
