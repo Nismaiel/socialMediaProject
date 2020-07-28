@@ -27,6 +27,7 @@ dependencies:
   cloud_firestore: ^0.13.7
   fluttertoast: ^7.0.1+1
   provider_architecture: ^1.1.1+1
+  adhara_socket_io: ^0.4.2+1
 
 
   # The following adds the Cupertino Icons font to your application.

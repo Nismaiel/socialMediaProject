@@ -2,9 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:social_media/auth/loginView.dart';
+import 'package:social_media/models/userModel.dart';
 import 'package:social_media/screens/chat.dart';
 import 'package:social_media/services/authService.dart';
 import 'package:social_media/services/fireStoreService.dart';
+import 'package:social_media/services/socketServices.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,7 +15,61 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final FireStoreService _db = FireStoreService();
-  final AuthService _auth = AuthService();
+  final SocketService _socket=SocketService();
+  bool connectedToSocket;
+  String _connectMessage;
+
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    connectedToSocket=false;
+    _connectMessage='Connecting...';
+    _connectToSocket();
+  }
+  UserModel _user;
+  _connectToSocket(){
+  print('Connecting ${_user.name},${_user.id}');
+  _db.initSocket();
+  _socket.initSocket(_user.name);
+  _socket.connectToSocket();
+  _socket.setConnectListener(onConnect);
+  _socket.setOnConnectionErrorListener(onConnectionError);
+  _socket.setTimeOutListener(onConnectionTimeOut);
+  _socket.setOnDisconnectListener(onDisconnect);
+  _socket.setOnErrorListener(onError);
+  }
+  onConnect(data){
+    setState(() {
+      connectedToSocket=true;
+      _connectMessage='Connected';
+    });
+  }
+  onConnectionError(data){
+    setState(() {
+      connectedToSocket=false;
+      _connectMessage='Connection Error!!';
+    });
+  }
+  onConnectionTimeOut(data){
+    setState(() {
+      connectedToSocket=false;
+      _connectMessage='Connection TimeOut!!';
+    });
+  }
+  onDisconnect(data){
+    setState(() {
+      connectedToSocket=false;
+      _connectMessage='Disconnected!!';
+    });
+  }
+  onError(data){
+    setState(() {
+      connectedToSocket=false;
+      _connectMessage='Error!!';
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {

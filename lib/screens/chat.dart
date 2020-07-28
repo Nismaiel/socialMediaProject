@@ -13,6 +13,12 @@ class Chat extends StatefulWidget {
 TextEditingController _messageController = TextEditingController();
 
 class _ChatState extends State<Chat> {
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
