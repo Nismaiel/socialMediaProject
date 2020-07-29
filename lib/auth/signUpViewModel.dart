@@ -23,7 +23,7 @@ class SignUpViewModel extends ChangeNotifier {
     );
     if (result is bool) {
       if (result) {
-Navigator.pushReplacement(context,MaterialPageRoute(builder:(ctx)=>Home()));
+Navigator.pushReplacement(context,MaterialPageRoute(builder:(ctx)=>Friends()));
       } else {
         FToast(context).showToast(toastDuration: Duration(seconds: 2),child:  Container(
           padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),

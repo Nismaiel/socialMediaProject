@@ -20,7 +20,7 @@ class LoginViewModel extends ChangeNotifier {
     if (result is bool) {
       if (result) {
         Navigator.of(context)
-            .pushReplacement(MaterialPageRoute(builder: (ctx) => Home()));
+            .pushReplacement(MaterialPageRoute(builder: (ctx) => Friends()));
       } else {
         FToast(context).showToast(
             toastDuration: Duration(seconds: 2),

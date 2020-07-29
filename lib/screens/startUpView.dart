@@ -26,6 +26,7 @@ Future _populateCurrentUser(FirebaseUser user) async {
 
 
 class _StartUpViewState extends State<StartUpView> {
+  final FireStoreService _db=FireStoreService();
   @override
   void initState() {
     // TODO: implement initState

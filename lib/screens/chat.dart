@@ -36,14 +36,12 @@ class _ChatState extends State<Chat> {
             children: <Widget>[
               Container(
                 width: MediaQuery.of(context).size.width / 1.2,
-                child: Expanded(
-                  child: TextField(
-                    controller: _messageController,
-                    decoration: InputDecoration(enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-                        focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-                        focusColor: Colors.green,
-                        hintText: 'Enter Message here'),
-                  ),
+                child: TextField(
+                  controller: _messageController,
+                  decoration: InputDecoration(enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                      focusColor: Colors.green,
+                      hintText: 'Enter Message here'),
                 ),
               ),
               IconButton(icon: Icon(Icons.send), onPressed: () {})
